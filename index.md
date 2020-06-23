@@ -55,14 +55,14 @@ layout: default
 ### Web Application Server
 
 - C#
-- 자체 제작 Servlet
+- 군대에서 만든 자체 제작 Servlet
 
 
 
 ### ORM 
 
 - C#
-- 자체 제작 ORM 라이브러리
+- 군대에서 만든 자체 제작 ORM 라이브러리
 
 
 
