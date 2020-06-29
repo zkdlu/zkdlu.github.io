@@ -11,12 +11,20 @@ layout: default
 - MariaDB
 - React.js
 
+> 진행기간: 2020.06 ~ 진행중
+>
+> https://github.com/zkdlu/Mall-Mall
+
 
 
 ### 순서도 기반 교육용 비주얼 프로그래밍 프레임워크
 
 - WPF 
 - MVVM
+
+>진행기간: 2018.03 ~ 2018.06 (3개월)
+>
+>[PDF](./portfolio/프로젝트 문서_순서도 기반의 교육용 비주얼 프로그래밍 프레임웤.pdf)
 
 
 
@@ -25,12 +33,20 @@ layout: default
 - WPF
 - MVVM
 
+> 진행기간: 2020.04 ~ 2020.04 (1개월 미만)
+>
+> https://github.com/zkdlu/Zoom
+
 
 
 ### System Monitoring App
 
 - WPF
 - MVVM
+
+> 진행기간: 2018.06 ~ 2018.06 (1개월 미만)
+>
+> https://github.com/zkdlu/PC-monitoring
 
 
 
@@ -41,6 +57,10 @@ layout: default
 - OpenCV
 - Kinect
 
+>진행기간: 2015.09 ~ 2015.12 (3개월)
+>
+>[PDF](./portfolio/프로젝트 문서_Remote Control System-JUMP.pdf)
+
 
 
 ### 공유 웹 하드
@@ -50,19 +70,31 @@ layout: default
 - Mybatis
 - Oracle
 
+>진행기간: 2017.10 ~ 2017.12 (2개월)
+>
+>[PDF](./프로젝트 문서_공유 웹 하드.pdf)
+
 
 
 ### Web Application Server
 
 - C#
-- 군대에서 만든 자체 제작 Servlet
+- 자체 제작 Servlet/
+
+>진행기간: 2019.02 ~ 2019.10 (군 복무간 개발)
+>
+>
 
 
 
 ### ORM 
 
 - C#
-- 군대에서 만든 자체 제작 ORM 라이브러리
+- 자체 제작 ORM 라이브러리
+
+>진행기간: 2019.02 ~ 2019.10 (군 복무간 개발)
+>
+>
 
 
 
@@ -71,6 +103,10 @@ layout: default
 - C#
 - UDP
 
+>진행기간: 2016.09 ~ 2016.10 (1개월 미만)
+>
+>[PDF](./portfolio/프로젝트 문서_Low Traffic Effective BoardCast.pdf)
+
 
 
 ### 네트워크 패킷 스니퍼
@@ -78,11 +114,19 @@ layout: default
 - C#
 - Raw Socket
 
+>진행기간: 2016.04 ~ 2016.04 (1개월 미만)
+>
+>[PDF](./portfolio.프로젝트 문서_Packet Sniifer.pdf)
+
 
 
 ### Convolution Neural Network
 
 - C#
+
+>진행기간: 2017.03 ~ 2017.06 (3개월)
+>
+>https://github.com/zkdlu/CS_Convolution-Neural-Network
 
 
 
@@ -90,3 +134,6 @@ layout: default
 
 - C#
 
+>진행기간: 2019.10 ~ 2019.10 (1개월 미만)
+>
+>

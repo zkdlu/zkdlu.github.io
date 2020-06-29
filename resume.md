@@ -1,6 +1,5 @@
 ---
 ---
 
-# My Resume
+# Resume
 
-요약
