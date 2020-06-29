@@ -12,8 +12,7 @@ layout: default
 - React.js
 
 > 진행기간: 2020.06 ~ 진행중
->
-> https://github.com/zkdlu/Mall-Mall
+> [LINK](https://github.com/zkdlu/Mall-Mall)
 
 
 
@@ -23,7 +22,6 @@ layout: default
 - MVVM
 
 >진행기간: 2018.03 ~ 2018.06 (3개월)
->
 >[PDF](./portfolio/프로젝트 문서_순서도 기반의 교육용 비주얼 프로그래밍 프레임웤.pdf)
 
 
@@ -34,8 +32,7 @@ layout: default
 - MVVM
 
 > 진행기간: 2020.04 ~ 2020.04 (1개월 미만)
->
-> https://github.com/zkdlu/Zoom
+> [LINK](https://github.com/zkdlu/Zoom)
 
 
 
@@ -45,8 +42,7 @@ layout: default
 - MVVM
 
 > 진행기간: 2018.06 ~ 2018.06 (1개월 미만)
->
-> https://github.com/zkdlu/PC-monitoring
+> [LINK](https://github.com/zkdlu/PC-monitoring)
 
 
 
@@ -58,7 +54,6 @@ layout: default
 - Kinect
 
 >진행기간: 2015.09 ~ 2015.12 (3개월)
->
 >[PDF](./portfolio/프로젝트 문서_Remote Control System-JUMP.pdf)
 
 
@@ -71,8 +66,7 @@ layout: default
 - Oracle
 
 >진행기간: 2017.10 ~ 2017.12 (2개월)
->
->[PDF](./프로젝트 문서_공유 웹 하드.pdf)
+>[PDF](./portfolio/프로젝트 문서_공유 웹 하드.pdf)
 
 
 
@@ -83,7 +77,6 @@ layout: default
 
 >진행기간: 2019.02 ~ 2019.10 (군 복무간 개발)
 >
->
 
 
 
@@ -93,8 +86,7 @@ layout: default
 - 자체 제작 ORM 라이브러리
 
 >진행기간: 2019.02 ~ 2019.10 (군 복무간 개발)
->
->
+>  
 
 
 
@@ -104,7 +96,6 @@ layout: default
 - UDP
 
 >진행기간: 2016.09 ~ 2016.10 (1개월 미만)
->
 >[PDF](./portfolio/프로젝트 문서_Low Traffic Effective BoardCast.pdf)
 
 
@@ -115,8 +106,7 @@ layout: default
 - Raw Socket
 
 >진행기간: 2016.04 ~ 2016.04 (1개월 미만)
->
->[PDF](./portfolio.프로젝트 문서_Packet Sniifer.pdf)
+>[PDF](./portfolio/프로젝트 문서_Packet Sniifer.pdf)
 
 
 
@@ -125,8 +115,7 @@ layout: default
 - C#
 
 >진행기간: 2017.03 ~ 2017.06 (3개월)
->
->https://github.com/zkdlu/CS_Convolution-Neural-Network
+>[LINK](https://github.com/zkdlu/CS_Convolution-Neural-Network)
 
 
 
@@ -135,5 +124,4 @@ layout: default
 - C#
 
 >진행기간: 2019.10 ~ 2019.10 (1개월 미만)
->
 >
