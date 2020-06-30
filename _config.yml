@@ -11,16 +11,16 @@ subtitle: Back-end Developer
 
 # Side Menu Links
 menu:
-  - text: Portfolio
+  - text: Introduce
     link: /
     icon: ""
 
-  - text: Skills
-    link: /skills-and-offers
+  - text: Portfolio
+    link: /portfolio
     icon: ""
 
-  - text: Introduce
-    link: /introduce
+  - text: Skills
+    link: /skills
     icon: ""
 
   - text: Resume
