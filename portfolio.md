@@ -12,37 +12,45 @@ layout: default
 - React.js
 
 > 진행기간: 2020.06 ~ 진행중
+>
+> github: https://github.com/zkdlu/Mall-Mall
 
 
 
-### [순서도 기반 교육용 비주얼 프로그래밍 프레임워크](./portfolio/프로젝트 문서_순서도 기반의 교육용 비주얼 프로그래밍 프레임웤.pdf)
+### [순서도 기반 교육용 비주얼 프로그래밍 프레임워크](./portfolio/프로젝트 문서_순서도기반 교육용 개발 프레임워크.pdf)
 
 - WPF 
 - MVVM
 
 >진행기간: 2018.03 ~ 2018.06 (3개월)
+>
+>github: https://github.com/zkdlu/Flower-Project/tree/master/%EC%9D%B4%EC%A0%84%20%EA%B0%9C%EB%B0%9C%20%EC%BD%94%EB%93%9C/FLOWeR_Garden
 
 
 
-### [Zoom](https://github.com/zkdlu/Zoom)
+### [Zoom](./portfolio/프로젝트 문서_Zoom.pdf)
 
 - WPF
 - MVVM
 
 > 진행기간: 2020.04 ~ 2020.04 (1개월 미만)
+>
+> github: https://github.com/zkdlu/Zoom
 
 
 
-### [System Monitoring App](https://github.com/zkdlu/PC-monitoring)
+### [System Monitoring App](./portfolio/프로젝트 문서_시스템모니터링.pdf)
 
 - WPF
 - MVVM
 
 > 진행기간: 2018.06 ~ 2018.06 (1개월 미만)
+>
+> github: https://github.com/zkdlu/PC-monitoring
 
 
 
-### [사용자 접근성 향상을 위한 PC제어시스템](./portfolio/프로젝트 문서_Remote Control System-JUMP.pdf)
+### [사용자 접근성 향상을 위한 PC제어시스템](./portfolio/프로젝트 문서_PC 제어 시스템.pdf)
 
 - C# Winform
 - Arduino
@@ -64,27 +72,18 @@ layout: default
 
 
 
-### Web Application Server
+### [군 부대 행정업무 간소화 SW](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)
 
 - C#
-- 자체 제작 Servlet/
+- 자체 제작한 Servlet / ORM 라이브러리
 
 >진행기간: 2019.02 ~ 2019.10 (군 복무간 개발)
 >
 
 
 
-### ORM 
 
-- C#
-- 자체 제작 ORM 라이브러리
-
->진행기간: 2019.02 ~ 2019.10 (군 복무간 개발)
->  
-
-
-
-### [완전 이진 트리 구조를 이용한 브로드캐스팅 시스템](./portfolio/프로젝트 문서_Low Traffic Effective BoardCast.pdf)
+### [완전 이진 트리 구조를 이용한 브로드캐스팅 시스템](./portfolio/프로젝트 문서_브로드캐스팅.pdf)
 
 - C#
 - UDP
@@ -93,7 +92,7 @@ layout: default
 
 
 
-### [네트워크 패킷 스니퍼](./portfolio/프로젝트 문서_Packet Sniifer.pdf)
+### [네트워크 패킷 스니퍼](./portfolio/프로젝트 문서_Packet Sniffer.pdf)
 
 - C#
 - Raw Socket
@@ -107,12 +106,3 @@ layout: default
 - C#
 
 >진행기간: 2017.03 ~ 2017.06 (3개월)
-
-
-
-### Ray Tracing
-
-- C#
-
->진행기간: 2019.10 ~ 2019.10 (1개월 미만)
->
