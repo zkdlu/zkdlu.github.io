@@ -4,7 +4,7 @@ layout: default
 
 # MY PROFILE
 
-### 쇼핑몰
+## 쇼핑몰
 - 사용 기술  
 	Spring Boot  
 	Spring Data JPA  
@@ -16,7 +16,7 @@ layout: default
 
 
 
-### 순서도 기반 교육용 비주얼 프로그래밍 프레임워크
+## 순서도 기반 교육용 비주얼 프로그래밍 프레임워크
 - 사용 기술  
  	WPF  
 	MVVM   
@@ -26,7 +26,7 @@ layout: default
 
 
 
-### Zoom
+## Zoom
 - 사용 기술  
  	WPF  
 	MVVM  
@@ -36,7 +36,7 @@ layout: default
 
 
 
-### System Monitoring App
+## System Monitoring App
 - 사용 기술  
  	WPF  
 	MVVM  
@@ -46,7 +46,7 @@ layout: default
 
 
 
-### 사용자 접근성 향상을 위한 PC제어시스템
+## 사용자 접근성 향상을 위한 PC제어시스템
 
 - 사용 기술  
  	Winform  
@@ -58,7 +58,7 @@ layout: default
 
 
 
-### 군 부대 행정업무 간소화 SW
+## 군 부대 행정업무 간소화 SW
 - 사용 기술  
  	자체 제작 C# Servlet  
 	자체 제작 C# to MsSQL ORM 라이브러리  
@@ -67,7 +67,7 @@ layout: default
 
 
 
-### 완전 이진 트리 구조를 이용한 브로드캐스팅 시스템
+## 완전 이진 트리 구조를 이용한 브로드캐스팅 시스템
 - 사용 기술  
  	C#  
 	UDP  
@@ -76,7 +76,7 @@ layout: default
 
 
 
-### 네트워크 패킷 스니퍼
+## 네트워크 패킷 스니퍼
 - 사용 기술  
  	C#  
 	Raw socket  
@@ -85,7 +85,7 @@ layout: default
 
 
 
-### Convolution Neural Network
+## Convolution Neural Network
 - 사용 기술  
  	C#  
 
