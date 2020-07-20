@@ -6,13 +6,13 @@ layout: default
 
 ### 쇼핑몰
 - 사용 기술
-	Spring Boot
-	Spring Data JPA
-	React.js
-	MariaDB |
+	Spring Boot  
+	Spring Data JPA  
+	React.js  
+	MariaDB  
 
-[PDF](https://github.com/zkdlu/Mall-Mall)
-[Github](https://github.com/zkdlu/Mall-Mall)
+[PDF](https://github.com/zkdlu/Mall-Mall)  
+[Github](https://github.com/zkdlu/Mall-Mall)   
 
 
 
@@ -82,6 +82,7 @@ layout: default
  	C#
 	Raw socket
 	
+
 [PDF](./portfolio/프로젝트 문서_Packet Sniffer.pdf)
 
 
