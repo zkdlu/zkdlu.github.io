@@ -23,9 +23,9 @@ menu:
     link: /skills
     icon: ""
 
-  - text: Resume
-    link: /resume
-    icon: ""
+  # - text: Resume
+  #   link: /resume
+  #   icon: ""
 
 # Socialmedia Icons
 social_icons:
