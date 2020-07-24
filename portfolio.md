@@ -20,9 +20,9 @@ layout: default
 - 사용 기술  
 	
 	* Spring Boot  
-	  Spring Data JPA  
-	  React.js  
-	  MariaDB  
+	* Spring Data JPA  
+	* React.js  
+	* MariaDB  
 	
 	[PDF](./portfolio/프로젝트 문서_쇼핑몰.pdf)  
 	[Github](https://github.com/zkdlu/Mall-Mall)     
@@ -32,8 +32,9 @@ layout: default
 
 ## Zoom
 - 사용 기술  
- 	WPF  
-	MVVM  
+ 	
+	* WPF  
+	* MVVM  
 	
 	[PDF](./portfolio/프로젝트 문서_Zoom.pdf)  
 	[Github](https://github.com/zkdlu/Zoom)  
@@ -43,8 +44,9 @@ layout: default
 
 ## System Monitoring App
 - 사용 기술  
- 	WPF  
-	MVVM  
+ 	
+	* WPF  
+	* MVVM  
 	
 	[PDF](./portfolio/프로젝트 문서_시스템모니터링.pdf)  
 	[Github](https://github.com/zkdlu/PC-monitoring)  
@@ -55,10 +57,11 @@ layout: default
 ## 사용자 접근성 향상을 위한 PC제어시스템
 
 - 사용 기술  
- 	Winform  
-	OpenCV  
-	Kinect  
-	Arduino  
+ 	
+	* Winform  
+	* OpenCV  
+	* Kinect  
+	* Arduino  
 	
 	[PDF](./portfolio/프로젝트 문서_PC 제어 시스템.pdf)  
 
@@ -67,8 +70,9 @@ layout: default
 
 ## 군 부대 행정업무 간소화 SW
 - 사용 기술  
- 	자체 제작 C# Servlet  
-	자체 제작 C# to MsSQL ORM 라이브러리  
+ 	
+	* 자체 제작 C# Servlet  
+	* 자체 제작 C# to MsSQL ORM 라이브러리  
 	
 	[PDF](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)  
 
@@ -77,8 +81,9 @@ layout: default
 
 ## 완전 이진 트리 구조를 이용한 브로드캐스팅 시스템
 - 사용 기술  
- 	C#  
-	UDP  
+ 	
+	* C#  
+	* UDP  
 	
 	[PDF](./portfolio/프로젝트 문서_브로드캐스팅.pdf)  
 
@@ -87,8 +92,9 @@ layout: default
 
 ## 네트워크 패킷 스니퍼
 - 사용 기술  
- 	C#  
-	Raw socket  
+ 	
+	* C#  
+	* Raw socket  
 	
 	[PDF](./portfolio/프로젝트 문서_Packet Sniffer.pdf)  
 
@@ -97,6 +103,6 @@ layout: default
 
 ## Convolution Neural Network
 - 사용 기술  
- 	C#  
+ 	* C#  
 
  	[Github](https://github.com/zkdlu/CS_Convolution-Neural-Network)  
