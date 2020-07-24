@@ -4,27 +4,28 @@ layout: default
 
 # MY PROFILE
 
-## 쇼핑몰
-- 사용 기술  
-	Spring Boot  
-	Spring Data JPA  
-	React.js  
-	MariaDB  
-	
-	[PDF](https://github.com/zkdlu/Mall-Mall)  
-	[Github](https://github.com/zkdlu/Mall-Mall)     
-
-
-
-
-
 ## 순서도 기반 교육용 비주얼 프로그래밍 프레임워크
 - 사용 기술  
- 	WPF  
-	MVVM   
+ 	
+	* WPF  
+	* MVVM   
 	
 	[PDF](./portfolio/프로젝트 문서_순서도기반 교육용 개발 프레임워크.pdf)  
 	[Github](https://github.com/zkdlu/Flower-Project/tree/master/%EC%9D%B4%EC%A0%84%20%EA%B0%9C%EB%B0%9C%20%EC%BD%94%EB%93%9C/FLOWeR_Garden)
+
+
+
+
+## 쇼핑몰
+- 사용 기술  
+	
+	* Spring Boot  
+	  Spring Data JPA  
+	  React.js  
+	  MariaDB  
+	
+	[PDF](./portfolio/프로젝트 문서_쇼핑몰.pdf)  
+	[Github](https://github.com/zkdlu/Mall-Mall)     
 
 
 
