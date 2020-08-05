@@ -34,7 +34,7 @@ layout: default
 - 사용 기술  
  	
 	* WPF  
-	* MVVM  
+	* MVVM   
 	
 	[PDF](./portfolio/프로젝트 문서_Zoom.pdf)  
 	[Github](https://github.com/zkdlu/Zoom)  
@@ -46,7 +46,7 @@ layout: default
 - 사용 기술  
  	
 	* WPF  
-	* MVVM  
+	* MVVM   
 	
 	[PDF](./portfolio/프로젝트 문서_시스템모니터링.pdf)  
 	[Github](https://github.com/zkdlu/PC-monitoring)  
@@ -102,7 +102,8 @@ layout: default
 
 
 ## Convolution Neural Network
-- 사용 기술  
+- 사용 기술   
+
  	* C#  
 
  	[Github](https://github.com/zkdlu/CS_Convolution-Neural-Network)  
