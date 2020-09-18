@@ -16,6 +16,17 @@ layout: default
 
 
 
+## 군 부대 행정업무 간소화 SW
+- 사용 기술  
+ 	
+	* 자체 제작 C# Servlet  
+	* 자체 제작 C# to MsSQL ORM 라이브러리  
+	
+	[PDF](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)  
+
+
+
+
 ## 쇼핑몰
 - 사용 기술  
 	
@@ -68,17 +79,6 @@ layout: default
 
 
 
-## 군 부대 행정업무 간소화 SW
-- 사용 기술  
- 	
-	* 자체 제작 C# Servlet  
-	* 자체 제작 C# to MsSQL ORM 라이브러리  
-	
-	[PDF](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)  
-
-
-
-
 ## 완전 이진 트리 구조를 이용한 브로드캐스팅 시스템
 - 사용 기술  
  	
@@ -97,7 +97,7 @@ layout: default
 	* Raw socket  
 	
 	[PDF](./portfolio/프로젝트 문서_Packet Sniffer.pdf)  
-
+	[Github](https://github.com/zkdlu/packet_sniffer_rawsocket)  
 
 
 
