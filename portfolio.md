@@ -21,7 +21,8 @@ layout: default
  	
 	* 자체 제작 C# Servlet  
 	* 자체 제작 C# to MsSQL ORM 라이브러리  
-	
+	* 로드 밸런싱  
+
 	[PDF](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)  
 
 
