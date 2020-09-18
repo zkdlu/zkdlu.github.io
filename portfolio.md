@@ -103,8 +103,8 @@ layout: default
 
 
 ## Convolution Neural Network
-- 사용 기술   
-
- 	* C#  
+- 사용 기술  
+ 	
+	* C#  
 
  	[Github](https://github.com/zkdlu/CS_Convolution-Neural-Network)  
