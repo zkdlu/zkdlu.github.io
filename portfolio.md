@@ -112,4 +112,5 @@ layout: default
  	
 	* C#  
 
- 	[Github](https://github.com/zkdlu/CS_Convolution-Neural-Network)  
+	[PDF](./portfolio/DNN, CNN 기술문서.pdf)  
+	[Github](https://github.com/zkdlu/CS_Convolution-Neural-Network)  
