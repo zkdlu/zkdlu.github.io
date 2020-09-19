@@ -5,10 +5,12 @@ layout: default
 # MY PROFILE
 
 ## 순서도 기반 교육용 비주얼 프로그래밍 프레임워크
-- 사용 기술  
+- 개발내용  
  	
-	* WPF  
-	* MVVM   
+	* IDE like Visual Studio
+	* UI Designer
+	* Flowchart Designer
+	* Interpreter
 	
 	[PDF](./portfolio/프로젝트 문서_순서도기반 교육용 개발 프레임워크.pdf)  
 	[Github](https://github.com/zkdlu/Flower-Project/tree/master/%EC%9D%B4%EC%A0%84%20%EA%B0%9C%EB%B0%9C%20%EC%BD%94%EB%93%9C/FLOWeR_Garden)
@@ -17,12 +19,14 @@ layout: default
 
 
 ## 군 부대 행정업무 간소화 SW
-- 사용 기술  
+- 개발내용  
  	
-	* 자체 제작 C# Servlet  
-	* 자체 제작 C# to MsSQL ORM 라이브러리  
-	* 로드 밸런싱  
-
+	* Web Server
+	* Web Application Server
+	* Servlet (Session Managing, Security)
+* ORM
+	* Load Balancing
+	
 	[PDF](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)  
 
 
@@ -43,10 +47,11 @@ layout: default
 
 
 ## Zoom
-- 사용 기술  
+- 개발내용  
  	
-	* WPF  
-	* MVVM   
+	* 하드웨어 가속된 프로세스 화면 캡처
+	* 전체 화면 캡처
+	* 윈도우 운영체제의 백그라운드 프로세스를 제외한 프로세스 목록 가져오기
 	
 	[PDF](./portfolio/프로젝트 문서_Zoom.pdf)  
 	[Github](https://github.com/zkdlu/Zoom)  
@@ -54,11 +59,11 @@ layout: default
 
 
 
-## System Monitoring App
-- 사용 기술  
+## System Monitoring
+- 개발내용  
  	
-	* WPF  
-	* MVVM   
+	* Material UI using WPF
+	* 실시간 CPU, GPU, I/O 데이터
 	
 	[PDF](./portfolio/프로젝트 문서_시스템모니터링.pdf)  
 	[Github](https://github.com/zkdlu/PC-monitoring)  
@@ -66,14 +71,14 @@ layout: default
 
 
 
-## 사용자 접근성 향상을 위한 PC제어시스템
+## 사용자 접근성 향상 프로그램
 
-- 사용 기술  
+- 개발내용  
  	
-	* Winform  
-	* OpenCV  
-	* Kinect  
-	* Arduino  
+	* UI 자동화 시스템
+	* 원격 제어 시스템
+	* Webcam, Kinect를 이용한 동작인식 라이브러리
+	* 한글 오토마타를 이용한 한글 조합 라이브러리
 	
 	[PDF](./portfolio/프로젝트 문서_PC 제어 시스템.pdf)  
 
@@ -81,10 +86,10 @@ layout: default
 
 
 ## 완전 이진 트리 구조를 이용한 브로드캐스팅 시스템
-- 사용 기술  
+- 개발내용  
  	
-	* C#  
-	* UDP  
+	* Zone Server
+	* Broadcast Algorithm
 	
 	[PDF](./portfolio/프로젝트 문서_브로드캐스팅.pdf)  
 
@@ -92,10 +97,10 @@ layout: default
 
 
 ## 네트워크 패킷 스니퍼
-- 사용 기술  
+- 개발내용  
  	
-	* C#  
-	* Raw socket  
+	* Raw socket를 이용한 Packet Receiver
+	* Packet Analyzer
 	
 	[PDF](./portfolio/프로젝트 문서_Packet Sniffer.pdf)  
 	[Github](https://github.com/zkdlu/packet_sniffer_rawsocket)  
