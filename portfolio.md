@@ -24,7 +24,7 @@ layout: default
 	* Web Server
 	* Web Application Server
 	* Servlet (Session Managing, Security)
-* ORM
+	* ORM
 	* Load Balancing
 	
 	[PDF](./portfolio/프로젝트 문서_군부대행정간소화SW.pdf)  
