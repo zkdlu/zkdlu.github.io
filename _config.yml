@@ -12,8 +12,8 @@ sass:
 
 permalink: /posts/:title/
 texture:
-  title: title-
-  tagline: tagline-
+  title: Geon Lee
+  tagline: 코딩 메모장
   date_format: "%b %-d, %Y"
   style: black
   showNav: false
