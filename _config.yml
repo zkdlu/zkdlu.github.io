@@ -1,38 +1,80 @@
-title: Geon Lee
-author: zkdlu
-email: zkdlu159951@gmail.com
-description: Hello
-show_excerpts: true # set to true to show excerpts on the homepage
-baseurl: /
+# # # # # # # # # # # # #
+#   K i k o - p l u s   #
+# # # # # # # # # # # # #
 
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+# Basic
+name:               "Geon Lee"
+
+author:
+  github:           zkdlu
+  email:            zkdlu159951@gmail.com
+
+copyright:
+  year:             2017
+  name:             Kiko
+
+# Google-analytics
+google-analytics:
+  id:               ""
+
+# Disqus
+disqus:
+  id:               "kiko-plus"
+
+# URL
+url:                "https://zkdlu.github.io" # the base hostname & protocol for your site
+# url:                "http://localhost:4000" # use this url when you develop
+baseurl:            "/blog" # the subpath of your site, e.g. /blog
+
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           Asia/Seoul
+permalink:          /:year-:month-:day/:title/
+
+# Pagination
+paginate:           5
+paginate_path:      /page:num/
+
+# Markdown
+markdown:           kramdown
+kramdown:
+  input:            GFM
+
+# Navigation
+nav:
+  - name:           "About"
+    url:            "/about"
+  - name:           "Archive"
+    url:            "/archive"
+  - name:           "Tags"
+    url:            "/tags"
+  - name:           "Github"
+    url:            "https://github.com/zkdlu"
+
+# Sass
 sass:
-  sass_dir: _sass
+  sass_dir:         _sass
+  style:            :compressed
 
-permalink: /posts/:title/
-texture:
-  title: Geon Lee
-  tagline: 코딩 메모장
-  date_format: "%b %-d, %Y"
-  style: black
-  showNav: false
-  showPicker: true
+# Scopes
+defaults:
+  -
+    scope:
+      path:         ""
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      path:         ""
+      type:         "posts"
+    values:
+      layout:       "post"
 
-  # generate social links in footer
-  social_links:
-    github:  zkdlu
-    rss: rss
- 
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
-# Build settings
-# theme: texture
-
-plugins:
+# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
+gems:
   - jekyll-seo-tag
-#  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-admin
+
+exclude:            [vendor]
