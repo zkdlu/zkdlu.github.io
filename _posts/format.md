@@ -2,7 +2,7 @@
 layout: post
 title: "포스팅 테스트"
 description: "설명 테스트."
-date: 2020-12-28
+date: 2020-12-28 00:00:00
 tags: [Java, Spring]
 comments: true
 share: true
