@@ -18,8 +18,10 @@ Github Repository의 양이 많아지면서 같은 주제의 글이 서로 다�
 - Redis
 - ELK
 - MSA
-- AWS
+- AWS/GCP
 - CI/CD
 - Git/Github
 - Trouble shooting
 - Linux
+- Database
+- Java
