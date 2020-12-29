@@ -3,7 +3,7 @@ layout: post
 title: "[Trouble shooting] 1.쿠버네티스 설치하기"
 description: "Kubernetes 설치하면서 생긴 어려움들"
 date: 2020-12-28
-tags: [Trouble shooting, Kubernetes, Docker]
+tags: [Trouble shooting, Kubernetes]
 comments: true
 share: true
 ---
@@ -12,7 +12,7 @@ AWS EC2에서 쿠버네티스를 사용하면서 생긴 이슈
 
 # 쿠버네티스
 
-쿠버네티스를 직접 설치하면서 마스터 클러스터를 설정하기 위해 **> sudo kubeadm init **을 실행 했더니 다음과 같은 오류메시지가 출력 되었다.
+쿠버네티스를 직접 설치하면서 마스터 클러스터를 설정하기 위해 **> sudo kubeadm init**을 실행 했더니 다음과 같은 오류메시지가 출력 되었다.
 
 ```bash
 user:~$ sudo kubeadm init
