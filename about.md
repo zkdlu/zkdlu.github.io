@@ -3,9 +3,9 @@ title: Home
 permalink: /about/
 ---
 
-Github Repository의 양이 많아지면서 같은 주제의 글이 서로 다른 저장소에 작성되는 문제가 있어, 
 
-정리를 위한 메모장
+
+내가 보고 참고 할 메모장 블로그
 
 
 
