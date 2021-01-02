@@ -69,6 +69,9 @@ public class KafkaProducerConfig {
 }
 ```
 > Kafka Producer 설정
+
+
+
 ```java
 @Configuration
 public class KafkaConsumerConfig {
@@ -99,6 +102,9 @@ public class KafkaConsumerConfig {
 }
 ```
 > Kafka Consumer  설정
+
+
+
 ```java
 @EnableKafka
 @Configuration
