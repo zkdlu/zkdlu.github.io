@@ -14,8 +14,8 @@ Spring boot에서 Kafka를 연동하면서 생겼던 오류와 궁금증을 정�
 
 - Spring boot 2.4.1
 - OpenJDK 11
-- bitnami/kafka:latest
-- bitnami/zookeeper:latest
+- bitnami/kafka:2-debian-10
+- bitnami/zookeeper:3-debian-10
 
 
 
