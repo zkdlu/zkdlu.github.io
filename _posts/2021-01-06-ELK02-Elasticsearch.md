@@ -251,7 +251,7 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
 
 
 
-## 버전
+## 버전 업그레이드
 
 작성 후 알았는데 위의 API는 Elasticsearch 6.x 버전에서 사용 되는 api이다.
 
@@ -291,11 +291,12 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
   
 
 - **Index**  
-    | API               | 6.x                                     | 7.x                              |
-    | :---------------- | :-------------------------------------- | :------------------------------- |
-    | create index      | /{index}                                | ㅡ                               |
-    | get mapping       | /{index}/_mapping/{type}                | /{index}/_mapping                |
-    | put mapping       | /{index}/_mapping/{type}                | /{index}/_mapping                |
-    | get field mapping | /{index}/{type}/_mapping/field/{fields} | /{index}/_mapping/field/{fields} |
-    | get template      | /_template/{template}                   | ㅡ                               |
-    | put template      | /_template/{template}                   | ㅡ                               |
+  
+  | API               | 6.x                                     | 7.x                              |
+| ---------------- | -------------------------------------- | ------------------------------- |
+| create index      | /{index}                                | ㅡ                               |
+| get mapping       | /{index}/_mapping/{type}                | /{index}/_mapping                |
+| put mapping       | /{index}/_mapping/{type}                | /{index}/_mapping                |
+| get field mapping | /{index}/{type}/_mapping/field/{fields} | /{index}/_mapping/field/{fields} |
+| get template      | /_template/{template}                   | ㅡ                               |
+| put template      | /_template/{template}                   | ㅡ                               |
