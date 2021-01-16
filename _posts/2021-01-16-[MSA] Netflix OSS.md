@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "[MSA] Netflix OSS"
-description: "hystrix"
-date: 2021-01-13 00:00:00
+description: "Spring cloud Netflix OSS"
+date: 2021-01-16 00:00:01
 tags: [MSA, Spring boot]
 comments: true
 share: true
