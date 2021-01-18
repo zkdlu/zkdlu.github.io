@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[kafka] 1.Kafka"
-description: "Kafka 기본과 설치"
-date: 2020-12-30 00:00:01
+title: "[kafka] 5.Kafka sasl"
+description: "Kafka에 sasl 적용하기"
+date: 2021-01-18 00:00:00
 tags: [Kafka, Message Queue, docker]
 comments: true
 share: true
