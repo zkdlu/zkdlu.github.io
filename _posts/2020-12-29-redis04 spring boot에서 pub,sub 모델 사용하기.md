@@ -3,7 +3,7 @@ layout: post
 title: "[Redis] 4.Spring boot에서  pub/sub 모델 사용하기"
 description: "Spring boot에서 Redis 사용하기"
 date: 2020-12-29 00:00:09
-tags: [Redis, Spring boot, Message Queue]
+tags: [Redis, Spring boot]
 comments: true
 share: true
 ---
