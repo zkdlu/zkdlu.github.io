@@ -3,7 +3,7 @@ layout: post
 title: "[Trouble shooting] 4.intellij multi module 사용하기"
 description: "intellij에서 멀티모듈을 사용하면서 발생한 오류"
 date: 2021-01-12 00:00:03
-tags: [Trouble shooting, intellij]
+tags: [trouble shooting, intellij]
 comments: true
 share: true
 ---

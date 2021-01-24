@@ -3,7 +3,7 @@ layout: post
 title: "[MSA] Netflix OSS"
 description: "Spring cloud Netflix OSS"
 date: 2021-01-16 00:00:01
-tags: [MSA, Spring boot]
+tags: [msa, spring boot]
 comments: true
 share: true
 ---

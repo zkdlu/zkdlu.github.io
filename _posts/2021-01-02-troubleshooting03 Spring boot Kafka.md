@@ -3,7 +3,7 @@ layout: post
 title: "[Trouble shooting] 3.Spring boot Kafka 오류"
 description: "Spring boot에서 Kafka를 연동하면서 생긴 오류"
 date: 2021-01-02 00:00:00
-tags: [Trouble shooting, Kafka, Spring boot]
+tags: [trouble shooting, kafka, spring boot]
 comments: true
 share: true
 ---

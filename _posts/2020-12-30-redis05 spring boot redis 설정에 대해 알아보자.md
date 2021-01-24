@@ -3,7 +3,7 @@ layout: post
 title: "[Redis] 5.Spring boot redis cache 설정"
 description: "이전에 따라한 cache 설정"
 date: 2020-12-30 00:00:00
-tags: [Redis, Spring boot, Cache]
+tags: [redis, spring boot, cache]
 comments: true
 share: true
 ---

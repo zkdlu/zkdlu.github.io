@@ -3,7 +3,7 @@ layout: post
 title: "[kafka] 5.Kafka sasl"
 description: "Kafka에 sasl 적용하기"
 date: 2021-01-18 00:00:00
-tags: [Kafka, Docker]
+tags: [kafka, docker]
 comments: true
 share: true
 ---

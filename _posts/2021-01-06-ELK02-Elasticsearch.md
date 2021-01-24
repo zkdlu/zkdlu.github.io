@@ -3,7 +3,7 @@ layout: post
 title: "[ELK] 2. Elasticsearch"
 description: "Elasticsearch란?"
 date: 2021-01-06 00:00:01
-tags: [ELK]
+tags: [elk]
 comments: true
 share: true
 ---

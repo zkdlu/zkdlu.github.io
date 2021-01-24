@@ -3,7 +3,7 @@ layout: post
 title: "[Trouble shooting] 1.쿠버네티스 설치하기"
 description: "Kubernetes 설치하면서 생긴 어려움들"
 date: 2020-12-28 00:00:02
-tags: [Trouble shooting, Kubernetes]
+tags: [trouble shooting, kubernetes]
 comments: true
 share: true
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "[kafka] 3.Spring boot에서 Kafka 사용하기"
 description: "Kafka를 Spring boot에서 사용하는 법"
 date: 2021-01-01 00:00:00
-tags: [Kafka, Spring boot]
+tags: [kafka, spring boot]
 comments: true
 share: true
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "[Redis] 2.Spring boot에서 사용하기"
 description: "Spring boot에서 Redis 사용하기"
 date: 2020-12-29 00:00:07
-tags: [Redis, Spring boot]
+tags: [redis, spring boot]
 comments: true
 share: true
 ---

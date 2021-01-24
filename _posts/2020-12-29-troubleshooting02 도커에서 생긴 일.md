@@ -3,7 +3,7 @@ layout: post
 title: "[Trouble shooting] 2.도커에서 생긴 일"
 description: "윈10의 WSL환경에서 도커를 사용하면서 생긴 일"
 date: 2020-12-29 00:00:05
-tags: [Trouble shooting, Docker, WSL]
+tags: [trouble shooting, docker, wsl]
 comments: true
 share: true
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "[Redis] 3.Spring boot에서 Cache로 사용하기"
 description: "Spring boot에서 Redis 사용하기"
 date: 2020-12-29 00:00:08
-tags: [Redis, Spring boot, Cache]
+tags: [redis, spring boot, cache]
 comments: true
 share: true
 ---
