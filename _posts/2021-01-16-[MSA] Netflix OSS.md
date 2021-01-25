@@ -84,7 +84,7 @@ jdbc connect timeout , jdbc query timeout 등 수많은 요소로 타임아웃 �
 (4)**일정 시간 경과** 후에 단 한개의 요청에 대해 호출을 허용하며(Half Open), 이 호출이 성공하면 Circuit Close (호출허용)
 
 ```properties
-hysrix.command.( server id )
+hysrix.command.( command key )
 
 (1)metrics.rolllingStats.timeInMilliseconds # Default 10초
 (2)circuitBreaker.requestVolumeThreshold # Default 20개
@@ -144,9 +144,9 @@ HystrixBadRequestException은 사용자의 코드에서 발생시킬 경우 이 
 Circuit Breaker단위로 타임아웃을 지정
 
 ```properties
-hystrix.command.( server id )
+hystrix.command.( command key )
 
-exception.isolation.thread.timeoutInMilliseconds # Default 1초
+execution.isolation.thread.timeoutInMilliseconds # Default 1초
 ```
 
 
