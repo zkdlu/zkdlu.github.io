@@ -8,6 +8,17 @@ comments: true
 share: true
 ---
 
+### 환경
+
+- OpenJDK 11
+
+- Spring Boot 2.3.8
+- org.springframework.boot:spring-boot-starter-security
+- io.jsonwebtoken:jjwt:0.9.1
+
+
+
+
 ### 무엇을 했는가?
 
 Spring Security와 JWT를 이용해 유저 인증 후 로그인 시도를 하면 Jwt 토큰을 발급 해 주려고 함.
@@ -73,26 +84,26 @@ java.lang.ClassNotFoundException: javax.xml.bind.DatatypeConverter
 
 
 
-처음보는 예외메시지다. 
+signWith메서드를 호출하면 javax.xml.bind.DatatypeConverter 와 ClassNotFoundException예외가 발생하였다. 
 
-javax.xml.bind.DatatypeConverter 와 ClassNotFoundException을 보면 
-
-XML을 바인딩하여 타입 변경을 하지 못해 발생한 예외로 보인다.
+DatatypeConverter 클래스가 필요한가 보다.
 
 
 
 ### 어떻게 하였는가?
 
+DatatypeConverter은 Java 9버전부터 XML과 관련된 모듈이 분리되었기 때문에 의존성을 추가해준다.
+
 프로젝트에 jaxb-api  의존성을 추가하여 해결하였다.
 
 ```gradle
 dependencies {
-    implementation 'javax.xml.bind:jaxb-api:2.1'
+    implementation 'javax.xml.bind:jaxb-api'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     ...
 ```
 
 
 
-Java 9버전부터 XML과 관련된 모듈이 분리되면서 빠진 모듈인데 이 모듈이 JWT의 암호화와 무슨 관련일까?
+
 
