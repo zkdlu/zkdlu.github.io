@@ -195,7 +195,7 @@ Spring Data JPA의 Repository 구현체인 SimpleJpaRepository 클래스는 내�
    }
    ```
 
-2. 데이터 소스 설정
+2. application.properties에 데이터 소스 설정
 
    ```properties
    # 기본 설정 (h2, hsql의 메모리 db는 아무 설정 안해도 됨)
