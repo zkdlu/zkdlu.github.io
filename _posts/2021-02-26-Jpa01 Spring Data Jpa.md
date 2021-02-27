@@ -10,6 +10,30 @@ share: true
 
 
 
+# JPA
+
+Java Persistence Api. 자바 어플리케이션에서 관계형 데이터베이스를 사용하는 방식을 정의한 인터페이스
+
+# Hibernate
+
+JPA 구현체
+
+# Spring data JPA
+
+Spring에서 제공하는 JPA를 쓰기 쉽게 만들어 둔 모듈
+
+
+
+EntityManager를 직접 다루지 않고 Repository인터페이스를 사용하면 미리 정해진 규칙대로 메서드를 입력하면, 해당 메서드 이름에 적합한 쿼리를 날리는 구현체를 만들어 Bean에 등록 됨
+
+
+
+Spring Data JPA의 Repository 구현체인 SimpleJpaRepository 클래스는 내부적으로 EntityManager를 사용하고 있다.
+
+
+
+![jpa](https://zkdlu.github.io/images/jpa/jpa.png)
+
 
 
 
