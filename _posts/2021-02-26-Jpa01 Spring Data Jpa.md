@@ -247,10 +247,110 @@ Spring Data JPA의 Repository 구현체인 SimpleJpaRepository 클래스는 내�
            memberRepository.save(member);
        }
    }
-   
    ```
 
 
 
 # 연관관계
+
+> @JoinColumn
+>
+> @OneToOne
+>
+> @OneToMany
+>
+> @ManyToOne
+>
+> @ManyToMany
+
+## 단방향 매핑
+
+```java
+@Entity
+public class Member {
+    @Id @GeneratedValue
+    private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
+}
+```
+
+
+
+```java
+@Entity
+public class Team {
+    @Id @GeneratedValue
+    private Long id;    
+}
+```
+
+
+
+## 양방향 매핑
+
+```java
+@Entity
+public class Member {
+    @Id @GeneratedValue
+    private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
+}
+```
+
+
+
+```java
+@Entity
+public class Team {
+    @Id @GeneratedValue
+    private Long id;    
+    
+    @OneToMany(mappedBy = "team")
+    private List<Member> members = new ArrayList<>();
+}
+```
+
+### 양방향 매핑 규칙
+
+- 객체의 두 관계중 하나를 연관관계의 주인으로 지정 
+
+  > mappedBy
+
+- 연관관계의 주인만이 외래 키를 관리
+
+- 주인이 아닌쪽은 읽기만 가능
+
+- 주인은 mappedBy 속성 사용 X
+
+- 주인이 아니면 mappedBy 속성으로 주인 지정
+
+
+
+### Trouble shooting
+
+```bash
+Caused by: org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role
+```
+
+양방향 매핑을 한 후 팀에 존재하는 멤버를 조회하면 해당 예외가 발생하였다.
+
+- 원인
+
+  해당 예외는 member를 호출할 때, 영속성 컨텍스트가 종료되어 지연 로딩을 할 수 없어서 발생하는 예외로 일반적으로 트랜잭션 밖에서 조회할 경우 발생한다.
+
+- 해결 방법
+
+  1. @Transactional 어노테이션 추가
+
+  2. 또는 즉시 로딩으로 변경
+
+     > ```java
+     > @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
+     > ```
+
+  
 
