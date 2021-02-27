@@ -253,15 +253,17 @@ Spring Data JPA의 Repository 구현체인 SimpleJpaRepository 클래스는 내�
 
 # 연관관계
 
-> @JoinColumn
+> @JoinColumn : 외래 키를 매핑할 때 사용
 >
-> @OneToOne
+> > - name : 매핑할 외래키 이름  ("필드명_참조테이블 기본키 컬럼명")
 >
-> @OneToMany
+> @OneToOne : 1:1
 >
-> @ManyToOne
+> @OneToMany : 1:M
 >
-> @ManyToMany
+> @ManyToOne : N:1
+>
+> @ManyToMany : N:M
 
 ## 단방향 매핑
 
@@ -322,11 +324,25 @@ public class Team {
 
 - 연관관계의 주인만이 외래 키를 관리
 
+  > 위 경우 Member가 주인이며, Team 객체에서 Member를 변경해도 DB에 반영되지 않음
+
 - 주인이 아닌쪽은 읽기만 가능
 
 - 주인은 mappedBy 속성 사용 X
 
 - 주인이 아니면 mappedBy 속성으로 주인 지정
+
+  > 외래 키가 있는 곳을 주인으로 정하자
+
+```java
+public void test() throws Exception {
+    Member findMember = memberRepository.findById(2L).get();
+    Team findTeam = teamRepository.findById(4L).get();
+
+    findTeam.getMembers().add(findMember);  //동작하지 않는다.
+    findMember.setTeam(findTeam); // 동작한다.
+}
+```
 
 
 
