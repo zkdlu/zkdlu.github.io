@@ -12,7 +12,40 @@ share: true
 
 # JPA
 
-Java Persistence Api. 자바 어플리케이션에서 관계형 데이터베이스를 사용하는 방식을 정의한 인터페이스
+Java Persistence API. 자바 ORM 기술 표준.
+
+자바 어플리케이션에서 관계형 데이터베이스를 사용하는 방식을 정의한 인터페이스
+
+SQL 중심적 개발에서 객체를 중심으로 개발 할 수 있다.
+
+
+
+객체 지향과 관계형 데이터베이스의 패러다임이 불일치하면서 발생하는 문제를 해결 하고 값을 DB에 저장하는 것을 컬렉션에 저장하듯이 객체를 저장할 수 있다.
+
+
+
+## 사용법
+
+- 저장: jpa.persist(obj);
+- 조회: T obj = jpa.find(id);
+- 수정: obj.setName("new name");
+- 삭제: jpa.remove(obj);
+
+
+
+## 최적화
+
+1차 캐시와 동일성 보장
+
+> 같은 트랜잭션 안에서는 같은 엔티티를 반환
+>
+> DB Isolation Level이 Read Commit이어도 어플리케이션에서 Repeatable Read 보장
+
+트랜잭션을 지원하는 쓰기 지연
+
+지연 로딩
+
+
 
 # Hibernate
 
