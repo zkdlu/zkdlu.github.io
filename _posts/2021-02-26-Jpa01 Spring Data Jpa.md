@@ -109,12 +109,10 @@ JPA에서 특정 데이터베이스에 종속되지 않기 위해 사용한다.
 
 ## 사용법
 
-- 저장: jpa.persist(obj);
-- 조회: T obj = jpa.find(id);
-- 수정: obj.setName("new name");
-- 삭제: jpa.remove(obj);
-
-
+> - 저장: jpa.persist(obj);
+> - 조회: T obj = jpa.find(id);
+> - 수정: obj.setName("new name");
+> - 삭제: jpa.remove(obj);
 
 1. EntityManagerFactory 설정
 
@@ -129,8 +127,6 @@ JPA에서 특정 데이터베이스에 종속되지 않기 위해 사용한다.
 >  EntityManager는 스레드간 공유 하면 안됨. 한 트랜잭션에서 사용하고 제거
 >
 >  JPA의 모든 데이터 변경은 트랜잭션 안에서 실행해야 함
-
-
 
 ```java
 public void test() {
