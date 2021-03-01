@@ -86,7 +86,7 @@ SQL 중심적 개발에서 객체를 중심으로 개발 할 수 있다.
 ```java
 @Entity
 public class Member {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "USERNAME")
     private String name;
