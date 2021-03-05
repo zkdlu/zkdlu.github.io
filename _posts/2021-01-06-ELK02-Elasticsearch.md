@@ -80,7 +80,8 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
 
 
 - **수정** - /{index}/{type{id}}
- Request
+
+Request
 
   ```bash
   PUT http://localhost:9200/database/user/1
@@ -112,7 +113,8 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
   
   
 - **조회** - /{index}/{type}/{id}
- Request
+ 
+Request
 
   ```bash
   GET http://localhost:9200/database/user/1
@@ -139,7 +141,8 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
   
   
 - **삭제** - /{index}/{type}/{id}
- Request
+
+Request
 
   ```bash
   DELETE http://localhost:9200/database/user/1
@@ -166,8 +169,9 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
 
 
 
-- **전체 조회** - /{index}/{type}/{id}/_search
- Request
+- **전체 조회** - /{index}/{type}/_search
+
+Request
 
   ```bash
   GET http://localhost:9200/database/user/_search
@@ -208,8 +212,9 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
 
 
 
-- **전체 조건 조회** - /{index}/{type}/{id}/_search?q={key}:{value}
- Request
+- **전체 조건 조회** - /{index}/{type}/_search?q={key}:{value}
+
+Request
 
   ```bash
   GET localhost:9200/database/user/_search?q=name:zkdlu
