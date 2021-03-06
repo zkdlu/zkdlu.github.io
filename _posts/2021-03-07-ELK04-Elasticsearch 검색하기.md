@@ -23,27 +23,9 @@ $ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.typ
 $ curl -XPOST 'localhost:9200/account/_bulk?pretty' -H "Content-Type: application/json" --data-binary "@data.json"
 ```
 
+후 http://localhost:9200/account/_search 로 접속 해본다.
 
-
-## URI Search
-
-URL에 파라미터를 넘기는 방법
-
-```bash
-http://localhost:9200/account/_search?q=gender:F&size=1&from=1
-```
-
-> 저장된 계좌정보중에서 성별이 여자인 결과를 1번째부터 1개만 가져오기 (기본은 0번째부터)
-
-
-
-## Query DSL
-
-json 파일에 쿼리를 작성하여 POST로 넘기는 방법. 더욱 상세한 표현이 가능
-
-
-
-## Response
+## 검색 Response
 
 ```json
 {
@@ -72,4 +54,131 @@ json 파일에 쿼리를 작성하여 POST로 넘기는 방법. 더욱 상세한
     }
 }
 ```
+
+
+
+
+## URI Search
+
+URL에 파라미터를 넘기는 방법
+
+```bash
+http://localhost:9200/account/_search?q=gender:F&size=1&from=1
+```
+
+> 저장된 계좌정보중에서 성별이 여자인 결과를 1번째부터 1개만 가져오기 (기본은 0번째부터)
+
+
+
+## Query DSL
+
+json 파일에 쿼리를 작성하여 넘기는 방법. 더욱 상세한 표현이 가능
+
+- Query Context
+
+  Document가 Query와 얼마나 일치하는가를 _score로 응답
+
+- Filter Context
+
+  Document가 Query와 얼마나 일치하는가를 True/False로 응답
+
+
+
+### 사용법
+
+```bash
+$ curl -XGET 'localhost:9200/account/_search?pretty' -H 'Content-Type: application/json' -d @query.json
+```
+
+> query.json 에 검색 쿼리를 작성한다.
+
+### 전체 검색 match_all
+
+```json
+// match_all.json
+{
+    "query": {
+        "match_all": {}
+    }
+}
+```
+
+### 기본 필드 검색 match
+
+```json
+// match.json
+{
+    "query": {
+        "match": {
+            "gender": "F"
+        }
+    }
+}
+```
+
+### True/False 검색 bool
+
+> - **must**: bool must 절에 지정된 모든 쿼리가 일치하는 document 조회
+> - **must_not**: bool must_not 절에 지정된 모든 쿼리가 일치하지 않는 document 조회
+> - **should**: bool should 절에 지정된 모든 쿼리 중 하나라도 일치하는 document 조회
+> - **filter**: filter절에 지정된 모든 쿼리와 일치하는 documnet를 조회 (score 무시)
+
+```json
+// bool.json
+{
+    "query": {
+        "bool": {
+            "must": [
+                { "match": { "firstname": "Concetta" } }
+            ],
+            "must_not": [
+                { "match": { "gender": "M" } }
+            ]
+        }
+    }
+}
+```
+
+### 조건절 검색 filter
+
+```json
+// filter.json
+{
+    "query": {
+        "bool": {
+            "filter": {
+                "match": { "firstname": "Concetta" }
+            }
+        }
+    }
+}
+```
+
+
+
+### 범위 검색 range
+
+> - gte: greater equal
+> - gt: greater than
+> - lte: less equal
+> - ls: less
+
+```json
+// range.json
+{
+    "query": {
+        "bool": {
+            "filter": {
+                "range": {
+                    "balance": {
+                        "gte": 10000,
+                        "lte": 20000
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 
