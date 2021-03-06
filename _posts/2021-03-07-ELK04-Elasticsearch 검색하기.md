@@ -43,11 +43,11 @@ $ curl -XPOST 'localhost:9200/account/_bulk?pretty' -H "Content-Type: applicatio
         "hits" : [ 
             {
                 "_index": "인덱스 이름",
-                "_type": "_doc", // 7.x부터 _doc으로 통일,
+                "_type": "_doc", # 7.x부터 _doc으로 통일,
                 "_id": "id",
                 "_score": "해당 document가 검색 쿼리와 일치하는 상대적인 값",
                 "_source": {
-                    // 데이터
+                    # 데이터
                 }
             }
         ]
@@ -91,6 +91,9 @@ $ curl -XGET 'localhost:9200/account/_search?pretty' -H 'Content-Type: applicati
 ```
 
 > query.json 에 검색 쿼리를 작성한다.
+
+
+
 
 ### 전체 검색 match_all
 
@@ -181,4 +184,93 @@ $ curl -XGET 'localhost:9200/account/_search?pretty' -H 'Content-Type: applicati
 }
 ```
 
+
+
+### 역색인(Inverted Index) 검색 term, terms
+
+역색인에 있는 토큰 중 키워드가 포함된 documnet를 조회
+
+"a b c"라는 문자열은 ["a", "b", "c"] 로 역색인 되기 때문에 "a b c" 로는 검색이 안된다.
+
+- term
+
+```json
+// term.json
+{
+    "query": {
+        "term": {
+            "address": "street"
+        }
+    }
+}
+```
+* terms
+
+  배열에 있는 키워드와 하나라도 일치하는 document 조회
+
+```json
+// terms.json
+{
+    "query": {
+        "terms": {
+            "address": ["street", "place"]
+        }
+    }
+}
+```
+
+
+
+### 공통 옵션 size, from
+
+```json
+{
+    "from": 0,
+    "size": 3,
+    "query": {
+        "match_all": {}
+    }
+}
+```
+
+> **from**: sql의 offset
+>
+> **size**: sql의 limit
+
+## 공통 옵션 sort
+
+```json
+{
+    "sort": [
+        { "age": "asc" },
+        { "_score": "desc" }
+    ],
+    "query": {
+        "match_all": {}
+    }
+}
+```
+
+> age에 대해 오름차순으로 정렬 후, _score에 대해 내림차순으로 정렬
+>
+> - 정렬을 사용하지 않을 경우 기본 정렬은 _score 내림차순
+
+### 집계 하기 aggs (aggregations)
+
+```json
+{
+    "query": {
+        "term": {
+            "address": "street"
+        }
+    },
+    "aggs": {
+        "balance_avg": { # response 에 명시할 통계 결과 필드명
+            "avg" : { # 집계 타입 (sum, 등)
+                "field" : "balance" # 어떤 필드를 통계 낼 것인지
+            }
+        }
+    }
+}
+```
 
