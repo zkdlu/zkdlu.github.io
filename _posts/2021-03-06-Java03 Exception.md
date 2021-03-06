@@ -2,7 +2,7 @@
 layout: post
 title: "[Java] 3. Exception"
 description: "Checked Exception과 Unchecked Exception"
-date: 2021-03-06 00:00:01
+date: 2021-03-06 00:00:00
 tags: [java]
 comments: true
 share: true
