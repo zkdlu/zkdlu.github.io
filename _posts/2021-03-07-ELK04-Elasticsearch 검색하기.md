@@ -142,6 +142,36 @@ $ curl -XGET 'localhost:9200/account/_search?pretty' -H 'Content-Type: applicati
 }
 ```
 
+- 중첩하기
+
+```json
+{
+    "from": 0,
+    "size": 1000,
+    "query": {
+        "bool": {
+            "should": [ {
+                    "bool": {
+                        "must": {
+                            "term": { "address": "street" }
+                        },
+                        "boost": 2.0
+                    }
+                }, {
+                    "bool": {
+                        "must": {
+                            "term": { "address": "place" }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+  }
+  
+```
+> boost : 
+
 ### 조건절 검색 filter
 
 ```json
