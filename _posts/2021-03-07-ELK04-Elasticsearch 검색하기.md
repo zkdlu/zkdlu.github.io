@@ -170,7 +170,7 @@ $ curl -XGET 'localhost:9200/account/_search?pretty' -H 'Content-Type: applicati
   }
   
 ```
-> boost : 
+> boost : 가중치
 
 ### 조건절 검색 filter
 
