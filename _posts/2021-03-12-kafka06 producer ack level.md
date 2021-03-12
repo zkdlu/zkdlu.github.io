@@ -38,7 +38,7 @@ Producer가 메시지를 보내고 Broker로부터 메시지를 수신했는지 
 Broker가 Replication에 메시지를 복제하기 전에 응답을 보내기 때문에, Producer로 응답을 보낸 후 Leader Broker가 다운되게 되면 Follwer Broker는 메시지를 받지 못해 메시지가 손실 된다.
 > 속도 보통, 손실률 보통
 
-## 3. acks=all(-a)
+## 3. acks=all(-1)
 Producer가 메시지를 보내고, Broker는 Follwer Broker까지 복제가 완료 된 후 응답을 보낸다.
 Leader와 Follower가 메시지를 정상적으로 받았는지 확인하기 때문에 손실률이 매우 적지만, 속도 또한 가장 느리다.
 > 속도 느림, 손실률 적음
