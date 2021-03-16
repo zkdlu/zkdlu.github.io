@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[kafka] 6.kafka producer ack level"
+title: "[kafka] 6.Kafka producer ack level"
 description: "ack level에 따른 producer 동작"
 date: 2021-03-12 00:00:00
 tags: [kafka]
