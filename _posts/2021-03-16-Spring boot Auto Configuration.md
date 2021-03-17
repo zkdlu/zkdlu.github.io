@@ -189,79 +189,8 @@ public class WebConfig implements WebMvcConfigurer {
 스프링 프로젝트에서 별도로 jar를 다운받지 않고 gradle을 통해 GitHub에서 자동으로 의존성이 추가 되도록 해보자.
 
 1. https://jitpack.io/ 접속하여 GitHub 연동
-
-
-
-```java
-@Configuration
-@ConditionalOnClass(value = ResponseService.class)
-@EnableConfigurationProperties(ResponseProperties.class)
-public class ResponseAutoConfiguration {
-    private final ResponseProperties responseProperties;
-
-    public ResponseAutoConfiguration(ResponseProperties responseProperties) {
-        this.responseProperties = responseProperties;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public ResponseConfig responseConfig() {
-        String successCode = responseProperties.getSuccessCode() == null ? "OK"
-                : responseProperties.getSuccessCode();
-        String successMsg = responseProperties.getSuccessMsg() == null ? "SUCCESS"
-                : responseProperties.getSuccessMsg();
-
-        ResponseConfig responseConfig = new ResponseConfig();
-        responseConfig.put("success.code", successCode);
-        responseConfig.put("success.msg", successMsg);
-
-        return responseConfig;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public ResponseService responseService() {
-        return new ResponseService(responseConfig());
-    }
-}
-```
-
-
-
-```java
-public class ResponseConfig extends Properties {
-}
-```
-
-
-
-```java
-@ConfigurationProperties(prefix = "spring.response")
-public class ResponseProperties {
-    private String successCode;
-    private String successMsg;
-
-    public String getSuccessCode() {
-        return successCode;
-    }
-
-    public void setSuccessCode(String successCode) {
-        this.successCode = successCode;
-    }
-
-    public String getSuccessMsg() {
-        return successMsg;
-    }
-
-    public void setSuccessMsg(String successMsg) {
-        this.successMsg = successMsg;
-    }
-}
-```
-
-
-
-resources에 META-INF 디렉토리 생성 후 spring.factories 파일 생성
+2. 코드 작성
+3. resources에 META-INF 디렉토리 생성 후 spring.factories 파일 생성
 
 ```properties
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
@@ -270,7 +199,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 
 
-jar파일을 만들어야 하므로 build.gradle 수정
+4. jar파일을 만들어야 하므로 build.gradle 수정
 
 ```gradle
 ...
@@ -412,4 +341,26 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'  // 11에서 변경
 ..
 ```
+
+
+
+## 드디어 성공
+
+> 사실 위에서 var 키워드를 사용해서 한번 더 수정을 해줬다...
+
+빌드가 완료되면 이제 샘플 프로젝트를 하나 생성해서 사용해본다.
+
+
+
+```gradle
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.zkdlu:api-response-spring-boot-starter:v0.0.3'
+}
+```
+
+위 내용을 각각 추가해주면 jar가 다운로드 된 것을 볼 수 있다.
 
