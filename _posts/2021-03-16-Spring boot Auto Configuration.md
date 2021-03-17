@@ -180,6 +180,236 @@ public class WebConfig implements WebMvcConfigurer {
 
 
 
+# 작성중..
 
 
-# 작성중
+
+# Auto Configuration
+
+스프링 프로젝트에서 별도로 jar를 다운받지 않고 gradle을 통해 GitHub에서 자동으로 의존성이 추가 되도록 해보자.
+
+1. https://jitpack.io/ 접속하여 GitHub 연동
+
+
+
+```java
+@Configuration
+@ConditionalOnClass(value = ResponseService.class)
+@EnableConfigurationProperties(ResponseProperties.class)
+public class ResponseAutoConfiguration {
+    private final ResponseProperties responseProperties;
+
+    public ResponseAutoConfiguration(ResponseProperties responseProperties) {
+        this.responseProperties = responseProperties;
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public ResponseConfig responseConfig() {
+        String successCode = responseProperties.getSuccessCode() == null ? "OK"
+                : responseProperties.getSuccessCode();
+        String successMsg = responseProperties.getSuccessMsg() == null ? "SUCCESS"
+                : responseProperties.getSuccessMsg();
+
+        ResponseConfig responseConfig = new ResponseConfig();
+        responseConfig.put("success.code", successCode);
+        responseConfig.put("success.msg", successMsg);
+
+        return responseConfig;
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public ResponseService responseService() {
+        return new ResponseService(responseConfig());
+    }
+}
+```
+
+
+
+```java
+public class ResponseConfig extends Properties {
+}
+```
+
+
+
+```java
+@ConfigurationProperties(prefix = "spring.response")
+public class ResponseProperties {
+    private String successCode;
+    private String successMsg;
+
+    public String getSuccessCode() {
+        return successCode;
+    }
+
+    public void setSuccessCode(String successCode) {
+        this.successCode = successCode;
+    }
+
+    public String getSuccessMsg() {
+        return successMsg;
+    }
+
+    public void setSuccessMsg(String successMsg) {
+        this.successMsg = successMsg;
+    }
+}
+```
+
+
+
+resources에 META-INF 디렉토리 생성 후 spring.factories 파일 생성
+
+```properties
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.zkdlu.apiresponsespringbootstarter.autoconfiguration.config.ResponseAutoConfiguration
+```
+
+
+
+jar파일을 만들어야 하므로 build.gradle 수정
+
+```gradle
+...
+
+
+bootJar {  enabled = false  }
+jar {  enabled = true  }
+```
+
+
+
+GitHub에 레포지토리를 Push를 한후 Release를 생성하면 잠시 후 jitpack.io에서 해당 레포지토리가 빌드 되는 것을 볼 수 있다.
+
+
+
+## 빌드 실패 1
+
+```
+Build starting...
+Start: Wed Mar 17 12:21:58 UTC 2021 2b597c15fe02
+Git:
+v0.0.0-0-gb85cb80
+commit b85cb8022a80f0314f2d04f21ede7a9d9ff4c0a1
+Author: zkdlu 
+Date:   Wed Mar 17 21:20:08 2021 +0900
+
+    auto config
+
+
+Found gradle
+Gradle build script
+Found gradle version: 6.8.3.
+Using gradle wrapper
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Downloading https://services.gradle.org/distributions/gradle-6.8.3-bin.zip
+.10%.20%.30%.40%.50%.60%.70%.80%.90%.100%
+
+------------------------------------------------------------
+Gradle 6.8.3
+------------------------------------------------------------
+
+Build time:   2021-02-22 16:13:28 UTC
+Revision:     9e26b4a9ebb910eaa1b8da8ff8575e514bc61c78
+
+Kotlin:       1.4.20
+Groovy:       2.5.12
+Ant:          Apache Ant(TM) version 1.10.9 compiled on September 27 2020
+JVM:          1.8.0_252 (Private Build 25.252-b09)
+OS:           Linux 4.10.0-28-generic amd64
+
+0m2.900s
+Getting tasks: ./gradlew tasks --all
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Tasks: 
+Found javadoc task
+
+WARNING:
+Gradle 'install' task not found. Please add the 'maven' or 'android-maven' plugin.
+See the documentation and examples: https://jitpack.io/docs/
+```
+
+에러 메시지를 보면 gradle에 install이란 태스크가 없으니 maven 플러그인을 추가하라고 한다. 
+
+시키는대로 해보자.
+
+
+
+```gradle
+# build.gradle
+plugins {
+    id 'org.springframework.boot' version '2.3.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'maven' // 추가
+}
+...
+```
+
+
+
+## 빌드 실패 2
+
+```
+Build starting...
+Start: Wed Mar 17 12:29:18 UTC 2021 af93306995d1
+Git:
+v0.0.1-0-gf6ee03e
+commit f6ee03e0441b3853a332d2e3b3e7d2aba70d1522
+Author: zkdlu 
+Date:   Wed Mar 17 21:28:14 2021 +0900
+
+    add maven plugin
+
+
+Found gradle
+Gradle build script
+Found gradle version: 6.8.3.
+Using gradle wrapper
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Downloading https://services.gradle.org/distributions/gradle-6.8.3-bin.zip
+.10%.20%.30%.40%.50%.60%.70%.80%.90%.100%
+
+------------------------------------------------------------
+Gradle 6.8.3
+------------------------------------------------------------
+
+Build time:   2021-02-22 16:13:28 UTC
+Revision:     9e26b4a9ebb910eaa1b8da8ff8575e514bc61c78
+
+Kotlin:       1.4.20
+Groovy:       2.5.12
+Ant:          Apache Ant(TM) version 1.10.9 compiled on September 27 2020
+JVM:          1.8.0_252 (Private Build 25.252-b09)
+OS:           Linux 4.10.0-28-generic amd64
+
+0m2.812s
+Getting tasks: ./gradlew tasks --all
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Tasks: install,
+Found javadoc task
+Running: ./gradlew clean -Pgroup=com.github.zkdlu -Pversion=0.0.1 -xtest install
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+> Task :clean UP-TO-DATE
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Could not target platform: 'Java SE 11' using tool chain: 'JDK 8 (1.8)'.
+```
+
+아 jitpack에서는 jdk 11이 안되나 본다. Gradle에 설정된 JDK 버전을 변경해보자.
+
+```.
+..
+group = 'com.zkdlu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'  // 11에서 변경
+..
+```
+
