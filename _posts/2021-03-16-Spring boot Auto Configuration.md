@@ -33,12 +33,11 @@ Spring4 에서 도입된 어노테이션으로 조건부로 Bean을 Spring Conta
 
 ## 사용해보기
 
-### 1. https://jitpack.io/ 접속하여 GitHub 연동
-### 2. Spring boot 프로젝트 생성
+### 1. Spring boot 프로젝트 생성
 
 
 
-### 3. resources에 META-INF 디렉토리 생성 후 spring.factories 파일 생성
+### 2. resources에 META-INF 디렉토리 생성 후 spring.factories 파일 생성
 
 ```properties
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
@@ -47,7 +46,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 
 
-### 4. jar파일을 만들어야 하므로 build.gradle 수정
+### 3. jar파일을 만들어야 하므로 build.gradle 수정
 
 ```gradle
 ...
@@ -58,6 +57,8 @@ jar {  enabled = true  }
 ```
 
 
+
+### 4. https://jitpack.io/ 접속하여 GitHub 연동
 
 GitHub에 레포지토리를 Push를 한후 Release를 생성하면 잠시 후 jitpack.io에서 해당 레포지토리가 빌드 되는 것을 볼 수 있다.
 
