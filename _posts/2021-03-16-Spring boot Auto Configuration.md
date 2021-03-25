@@ -27,13 +27,53 @@ Spring4 에서 도입된 어노테이션으로 조건부로 Bean을 Spring Conta
 
 
 
-# 작성중
-
-
-
-## 사용해보기
+## 라이브러리를 직접 만들어보자
 
 ### 1. Spring boot 프로젝트 생성
+
+라이브러리로 사용할 코드를 작성한다.  throw 된 RuntimeException을 Handling 하는 라이브러리를 만들어보자.
+
+```java
+@RestControllerAdvice
+public class ExceptionAdvice {
+    private final ExceptionProperties exceptionProperties;
+
+    public ExceptionAdvice(ExceptionProperties exceptionProperties) {
+        this.exceptionProperties = exceptionProperties;
+    }
+    
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Object handle(HttpServletRequest request, Exception e) {
+        return exceptionProperties.getMsg();
+    }
+}
+```
+
+Auto Configuration에서 조건을 읽을 수 있는 클래스를 만든다.
+
+```java
+@Configuration
+@ConditionalOnClass(ExceptionAdvice.class)
+@EnableConfigurationProperties(ExceptionProperties.class)
+public class ExceptionAutoConfiguration {
+}
+```
+
+> classpath에 ExceptionAdvice가 존재할 경우 실행
+
+
+
+application.properties (yml)에서 사용할 속성 클래스
+
+```java
+@ConfigurationProperties("spring.response")
+public class ExceptionProperties {
+    private String msg = "기본메시지";
+    
+    .. getter / setter ..
+}
+```
 
 
 
@@ -207,9 +247,31 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.zkdlu:api-response-spring-boot-starter:v0.0.3'
+    implementation 'com.github.zkdlu:api-response-spring-boot-starter:1.0.0'
 }
 ```
 
-위 내용을 각각 추가해주면 jar가 다운로드 된 것을 볼 수 있다.
+위 내용을 각각 추가해주면 jar가 다운로드 된 것을 볼 수 있다. 
 
+
+
+
+
+## 추가
+
+Spring AOP와 @Import 어노테이션을 이용하면 @Enable 어노테이션을 만들 수 있다.
+
+
+
+```java
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Import({ExceptionAdvice.class})
+public @interface EnableException {
+
+}
+```
+
+
+
+@EnableException 어노테이션을 추가하면 ExceptionAdvice를 Import 하게 되고  @ConditionalOnClass(ExceptionAdvice.class) 조건을 충족된다.
