@@ -26,4 +26,40 @@ Event를 사용하기 위해서는 3가지가 필수적이다.
 
    ​	전달하기 위한 이벤트로 ApplicationEvent 상속받는다.
 
-   
+
+
+
+
+
+어노테이션
+
+- @EntityListeners
+
+    @Entity에 사용되며, DB에 반영되기 전/후 에 실행 할 수 있는 핸들러이다.
+
+    > @PreUpdate, @PostUpdate
+    >
+    > @PrePersist, @PostPersist 등
+
+    
+
+- @EventListener
+
+    비즈니스 로직에서 이벤트를 발행할 때 사용
+
+    > 핸들링도 같은 트랜잭션 안에서 동작하기 때문에 함께 롤백된다.
+    >
+    > ex) 메일 발송이 실패되면 다른 로직도 롤백 되버림
+
+    
+
+- @TransactionEventListener
+
+    트랜잭션에 따른 처리가 가능한 EventListener
+
+    > phase : 트랜잭션 커밋 전/후 로 실행 순서 제어
+    >
+    > fallbackExecution : 트랜잭션 성공 실패  무관하게 실행 할 것인지
+    >
+    > condtion : 이벤트 리스너 동작 조건
+
