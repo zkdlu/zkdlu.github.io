@@ -48,7 +48,7 @@ nav:
     url:            "/archive"
   - name:           "Tags"
     url:            "/tags"
-  - name:           "blog"
+  - name:           "Blog"
     url:            "https://zkdlu.tistory.com/"
   - name:           "Github"
     url:            "https://github.com/zkdlu"
