@@ -127,7 +127,7 @@ public String placeOrder(OrderDto orderDto) {
 }
 ```
 
-> 토큰을 생성하는 코드
+> 주문을 처리하는 코드
 
 
 
