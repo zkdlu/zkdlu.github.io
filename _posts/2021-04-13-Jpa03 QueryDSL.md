@@ -184,3 +184,43 @@ class PersonQueryRepositoryTest {
 Hibernate: select person0_.id as id1_0_, person0_.name as name2_0_ from person person0_ where person0_.name=?
 ```
 
+
+
+### 동적 조회 조건 생성하기
+
+QueryDSL의 BooleanExpression을 사용하면 동적으로 Where 조건을 생성할 수 있다. 
+
+QueryDSL의 where  조건에 ,(쉼표)  로 구분하여 파라미터를 넘겨주면 And와 함께 조건을 생성하고 만약 파라미터로 null이 올 경우 조건에서 제외를 한다.
+
+```java
+import static com.zkdlu.querydsl.domain.QPerson.person;
+
+@RequiredArgsConstructor
+@Repository
+public class PersonQueryRepository {
+    private final JPAQueryFactory queryFactory;
+
+    public List<Person> findDynamic(String id, String name) {
+        return queryFactory.selectFrom(person)
+                .where(equalId(id)), 
+                        equalName(name))
+                .fetch();
+    }
+    
+    private BooleanExpression equalId(String id) {
+        if (StringUtils.isEmpty(id)) {
+            return null;
+        }
+        return person.id.eq(id);
+    }
+    
+    private BooleanExpression equalName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return null;
+        }
+        return person.name.eq(name);
+    }
+}
+```
+
+BooleanBuiler를 이용한 and(), or() 메서드를 사용하여 조건들을 추가할 수 도 있다.
