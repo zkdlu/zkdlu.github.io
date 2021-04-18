@@ -89,7 +89,17 @@ void send() {
 
 
 
+4. Slack에서 제공하는 SDK를 추가한다. [https://github.com/slackapi/java-slack-sdk ](https://github.com/slackapi/java-slack-sdk)
 
+   ```groovy
+   dependencies {
+       implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+       implementation 'com.slack.api:slack-api-model:1.0.0-RC2'
+       implementation 'com.slack.api:slack-api-client:1.0.0-RC2'    
+   }
+   ```
 
+   
 
+...작성중....
 
