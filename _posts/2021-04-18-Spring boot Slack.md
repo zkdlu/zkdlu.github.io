@@ -14,7 +14,7 @@ share: true
 
 웹훅을 사용하기 위해 워크스페이스에 **Incoming WebHooks**를 추가해준다.
 
-> https://api.slack.com/messaging/composing에 들어가면 슬랙에서 제공하는 기본적인 메시지 포맷이 있다.
+> [slack message](https://api.slack.com/messaging/composing)에 들어가면 슬랙에서 제공하는 기본적인 메시지 포맷이 있다.
 
 
 
@@ -51,9 +51,45 @@ void send() {
 
 
 
+### 반응형 메시지 사용하기
+
+슬랙에서 제공하는 [Block Kit](https://api.slack.com/block-kit) 을 이용해서 슬랙으로 투표같은 기능을 만들 수 있다.
+
+
+
+1. [https://api.slack.com/](https://api.slack.com/) 에 접속하여 App을 생성해준다.
+
+   앱을 사용해주기 위해 App Home탭에서 봇 유저를 설정해준다.
+
+   ![bot user](https://zkdlu.github.io/images/slack/botuser.png)
+
+   
+
+2. API 사용하기 위한 WebHook과 상호작용을 위한 URL을 설정해준다.
+
+   각각 Incoming Webhooks와 Interactivity & Shortcuts에서 설정이 가능하다.
+
+   Interactivity의 Request URL은 슬랙 메시지에서 특정 Action을 했을 경우 
+
+
+
+3. Action을 정의해준다.
+
+   특정 Action을 하기 위한 Shortcuts를 생성해준다.
+
+   
+
+   Shortcut에 등록하는 Action 정보
+
+   - Name : Action 이름
+   - Short Description : Action 설명
+   - Callback ID : Action ID
+
+   ![short cut](https://zkdlu.github.io/images/slack/shortcut.png)
 
 
 
 
-https://api.slack.com/block-kit
+
+
 
