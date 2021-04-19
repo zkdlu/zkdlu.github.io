@@ -158,7 +158,7 @@ void send() {
 
    ![vote](https://zkdlu.github.io/images/slack/vote.png)
 
-7. **슬랙에서 버튼을 누르면 설정 페이지에서 지정해둔 Request URL로 Callback이 온다. **
+7. **슬랙에서 버튼을 누르면 설정 페이지에서 지정해둔 Request URL로 Callback이 온다.**
 
    슬랙에서 보내오는 payload는 Content Type이 Application Form UrlEncoded으로  Post 메서드를 사용한다.
 
