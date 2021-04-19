@@ -93,9 +93,11 @@ void send() {
 
    ```groovy
    dependencies {
+       implementation 'com.google.code.gson:gson:2.8.6'
        implementation 'com.squareup.okhttp3:okhttp:4.2.0'
-       implementation 'com.slack.api:slack-api-model:1.0.0-RC2'
-       implementation 'com.slack.api:slack-api-client:1.0.0-RC2'    
+       implementation 'com.slack.api:slack-app-backend:1.6.2'
+       implementation 'com.slack.api:slack-api-model:1.6.2'
+       implementation 'com.slack.api:slack-api-client:1.6.2'
    }
    ```
 
