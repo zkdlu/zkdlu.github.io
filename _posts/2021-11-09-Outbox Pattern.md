@@ -8,155 +8,31 @@ comments: true
 share: true
 ---
 
+## Eventual Consistency
 
+MSA에서 도메인의 상태가 변경되면, Eventual Consistency를 위해 이벤트를 발행하여 상태가 변경되었다고 알리기 위해 메시지 브로커를 이용합니다. 
 
-## 해당하는 부분
+상태 변경과 이벤트 발행은 한 트랜잭션 안에 이루어지지만, 메시지 브로커는 데이터베이스 트랜잭션을 함께 사용할 수 없어서 서비스간 데이터 일관성이 깨지게 됩니다.
 
-1. Controller에서 오는 요청의 @RequestBody 객체
-2. Controller에서 오는 요청의 @ModelAttribute 객체
-3. Jpa가 생성하는 Entity 객체 
-4. Feign Client에서 사용되는 Return 객체
+1. 상태 변경은 성공했으나, 메시지 발행에 실패 
+2. 메시지 발행에 성공했으나, 상태 변경에 실패 
 
+일관성을 유지하기 위해 데이터베이스 트랜잭션과 메시지 발행은 하나의 트랜잭션으로 동작하여야 합니다.
 
+## Outbox Pattern
 
-### RequestBody의 경우
+RDB를 메시지 큐로서 사용하는 것
 
-```java
-@AllArgsConstructor
-@Getter
-class BodyDemo {
-    private String name;
-    private String description;
-}
+이벤트 발행을 메시지 브로커에 하지 않고, OUTBOX라는 테이블에 메시지를 저장합니다.
+
+저장된 메시지는 별도의 Message Relay를 통해 메시지 브로커에 메시지를 발행하여, 메시지 발행과 상태 변경을 동일한 트랜잭션으로 처리할 수 있게 됩니다.
+
+```sql
+CREATE TABLE OUTBOX (
+   id varchar(255) primary key,
+   aggregate_id varchar(255) not null, -- 순서 처리를 위해 사용 (partition key)
+   aggregate_type varchar(255) not null, -- 변경이 발생한 도메인
+   event_type varchar(255) not null, -- 발생한 이벤트
+   payload text not null -- 도메인 변경사항
+);
 ```
-
-기본 생성자가 없는 모델을 @RequestBody로 사용할 경우
-
-```java
- @PostMapping("/body")
-public String body(@RequestBody BodyDemo demo) {
-    return "body";
-}
-```
-
-아래의  Exception이 발생한다.
-
-```bash
-Caused by: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.zkdlu.communicate.BodyDemo]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.zkdlu.communicate.BodyDemo` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: (PushbackInputStream); line: 1, column: 2]
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:386)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:185)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:160)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	... 74 more
-Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.zkdlu.communicate.BodyDemo` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: (PushbackInputStream); line: 1, column: 2]
-
-```
-
-
-
-### ModelAttribute의 경우
-
-```java
-@Getter
-class ModelDemo {
-    private String name;
-    private String description;
-}
-```
-
-기본 생성자만 가지고 있는 경우
-
-```java
-@GetMapping("/model")
-public ModelDemo model(@ModelAttribute ModelDemo demo) {
-    return demo;
-}
-```
-
-setter가 없기떄문에 바인딩이 되지 않는다.
-
- ![image-20211016142644823](https://zkdlu.github.io/images/etc/modelattribute.png)
-
-
-
-### Feign Client의 경우
-
-```java
-@AllArgsConstructor
-@Getter
-class Demo {
-    private String name;
-    private String description;
-}
-```
-
-기본 생성자가 없는 경우에 Feign Client를 호출할 경우.
-
-```java
-@Component
-@FeignClient(name = "demo", url = "localhost:8080")
-interface DemoClient {
-    @GetMapping("/demo")
-    Demo getDemo();
-}
-```
-
-아래의 Exception이 발생한다.
-
-```bash
-com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.zkdlu.communicate.Demo` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
- at [Source: (PushbackInputStream); line: 1, column: 2]
-	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:67) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1615) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1077) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1332) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:331) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:164) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4526) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3521) ~[jackson-databind-2.11.4.jar:2.11.4]
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:378) ~[spring-web-5.3.10.jar:5.3.10]
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342) ~[spring-web-5.3.10.jar:5.3.10]
-	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:105) ~[spring-web-5.3.10.jar:5.3.10]
-	at org.springframework.cloud.openfeign.support.SpringDecoder.decode(SpringDecoder.java:57) ~[spring-cloud-openfeign-core-3.0.4.jar:3.0.4]
-	at org.springframework.cloud.openfeign.support.ResponseEntityDecoder.decode(ResponseEntityDecoder.java:61) ~[spring-cloud-openfeign-core-3.0.4.jar:3.0.4]
-	at feign.optionals.OptionalDecoder.decode(OptionalDecoder.java:36) ~[feign-core-10.12.jar:na]
-	at feign.AsyncResponseHandler.decode(AsyncResponseHandler.java:115) ~[feign-core-10.12.jar:na]
-	at feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java:87) ~[feign-core-10.12.jar:na]
-	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:138) ~[feign-core-10.12.jar:na]
-	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89) ~[feign-core-10.12.jar:na]
-	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100) ~[feign-core-10.12.jar:na]
-	at com.zkdlu.communicate.$Proxy61.getDemo(Unknown Source) ~[na:na]
-	at com.zkdlu.communicate.DemoServiceImpl.getDemo(DemoServiceImpl.java:15) ~[main/:na]
-```
-
-
-
-
-
-**결론**
-
-RequestBody와 Feign에서 사용되는 모델의 경우 application/json타입으로 데이터가 오며 이는 스프링부트의 MessageConverter가 Jackson 라이브러리를 이용해 Reflection으로 객체를 생성하게 되는데  기본 생성자가 없을 경우 Jackson 라이브러리가 deserialize 할 수 없어 예외가 발생한다.
-
-
-
-- application/json타입이 매핑 되는 거라면 NoArgsConstructor를 둔다.
-
-  > 객체 생성을 막고싶다면 private 생성자로
-
-- 그게 아니라면 Setter나 AllArgsConstructor를 두자
-
-  > 기왕이면 AllArgsConstructor를 두도록 하자
