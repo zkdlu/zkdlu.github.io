@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Outbox Pattern"
+title: "[MSA[Outbox Pattern"
 description: "Outbox Pattern"
 date: 2021-11-09 00:00:00
 tags: [spring boot, msa]
