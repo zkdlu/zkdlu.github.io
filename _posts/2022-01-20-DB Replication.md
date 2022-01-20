@@ -29,3 +29,8 @@ master에서 저달받은 binarylog를 읽어 DB에 반영
 - STATEMENT : SQL 복사
 - ROW : 변경된 ROW 복사
 - MIXED : STATEMENT + ROW
+
+
+### 예제
+
+...
