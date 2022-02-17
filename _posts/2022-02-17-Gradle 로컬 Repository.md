@@ -2,7 +2,7 @@
 layout: post
 title: "[Gradle] 로컬 Maven Repository에 저장하기"
 description: "jar파일 로컬 maven reposiory에 저장하기"
-date: 2022-02-18 00:00:00
+date: 2022-02-17 00:00:00
 tags: [java, gradle]
 comments: true
 share: true
