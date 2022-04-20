@@ -70,4 +70,4 @@ asciidoctor {
 ```
 
 
-[참고] https://github.com/spring-projects/spring-restdocs/issues/680
+[참고] [https://github.com/spring-projects/spring-restdocs/issues/680](https://github.com/spring-projects/spring-restdocs/issues/680)
